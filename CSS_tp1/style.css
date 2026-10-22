@@ -14,7 +14,8 @@ Effet : inclut padding et bordure DANS la largeur/hauteur
 déclarée — plus de débordement quand on ajoute du padding
 à un élément en width:100% (cas du formulaire, des champs…).
 */
-
+* box-sizing{border-box;
+}
 /*
 Élément <body> : toute la page.
 Instructions :
@@ -25,19 +26,32 @@ Instructions :
 - color: #334155 (gris-bleu foncé, plus doux que le noir pur)
 - background-color: #F8FAFC (gris très clair, fait ressortir les cartes blanches)
 */
-
+body{margin: 0;
+font-family: Arial, sans-serif;
+ font-size: 16px;
+line-height: 1.6;
+color: #334155;
+background-color: #F8FAFC;
+}
 /*
 Titre <h2> : tous les titres de niveau 2 du document.
 Instructions :
 - color: #1D4ED8 (bleu de la charte, hiérarchise visuellement les titres)
 - font-size: 28px (plus grand que le texte courant à 16px)
 */
-
+h2{
+color: #1D4ED8;
+font-size: 28px;
+}
 /*
 Sections <section> placées dans <main>.
 Instruction : margin-bottom: 30px.
-Effet : 30px d'espace SOUS chaque section, évite que les blocs se collent.
+Effet : 30d'espace SOUS chaque section, évite que les blocs se collent .
 */
+section main{
+margin-bottom: 30px;
+Effet : 30d'espace SOUS chaque section, évite que les blocs se collent;
+}
 
 /*
 Barre de navigation .barre.
@@ -49,7 +63,14 @@ Instructions :
 - padding: 16px 32px (16px haut/bas, 32px gauche/droite)
 - background-color: #0B2447 (bleu nuit, contraste fort avec le texte blanc)
 */
-
+.barre{
+display: flex;
+align-items: center;
+justify-content: space-between;
+gap: 24px;
+ padding: 16px 32px;
+ background-color: #0B2447;
+}
 /*
 Logo .logo (nom du site).
 Instructions :
@@ -57,7 +78,11 @@ Instructions :
 - font-size: 24px (plus grand que le texte courant, effet de titre)
 - font-weight: bold (renforce la présence du nom du site)
 */
-
+.logo{
+color: white; 
+ font-size: 24px;
+ font-weight: bold ;
+}
 /*
 Conteneur .liens (regroupe les liens du menu).
 Instructions :
@@ -65,7 +90,11 @@ Instructions :
 - align-items: center (centrage vertical sur la ligne du menu)
 - gap: 24px (espace régulier entre chaque lien)
 */
-
+.liens{
+ display: flex;
+ align-items: center ;
+  gap: 24px;
+}
 /*
 Chaque lien <a> dans .liens (menu de navigation).
 Instructions :
@@ -73,14 +102,21 @@ Instructions :
 - color: white (visible sur le fond bleu nuit #0B2447)
 - text-decoration: none (supprime le soulignement par défaut)
 */
-
+.lien a{
+padding: 10px ;
+color: white;
+text-decoration: none;
+}
 /*
 Liens du menu AU SURVOL de la souris (.liens a:hover).
 Instructions :
 - color: #93C5FD (bleu clair, retour visuel immédiat)
 - text-decoration: underline (réintroduit le soulignement)
 */
-
+.liens a:hover{
+  color: #93C5FD;
+  text-decoration: underline;
+}
 /*
 Bannière d'accueil .hero.
 Instructions :
@@ -92,21 +128,34 @@ Instructions :
   (dégradé linéaire à 135°, du bleu nuit #0B2447 au bleu vif #1D4ED8)
 - border-radius: 12px (arrondit les quatre coins de la bannière)
 */
-
+.hero{
+ margin: 20px;
+padding: 48px 24px;
+color: white;
+text-align: center;
+ background: linear-gradient(135deg, #0B2447, #1D4ED8);
+ border-radius: 12px;
+}
 /*
 Titre <h1> dans la bannière .hero.
 Instructions :
 - font-size: 32px (taille imposante pour marquer l'entrée de la page)
 - margin-top: 0 (supprime la marge par défaut au-dessus du h1)
 */
-
+.hero h1{
+ font-size: 32px;
+margin-top: 0 ;
+}
 /*
 Paragraphe <p> dans la bannière .hero.
 Instructions :
 - font-size: 18px (légèrement plus grand que le texte courant)
 - margin-bottom: 0 (supprime la marge par défaut sous le paragraphe)
 */
-
+.hero p{
+font-size: 18px;
+margin-bottom: 0 ;
+}
 /*
 Conteneur des cartes de modules .grille.
 Instructions :
@@ -115,7 +164,12 @@ Instructions :
 - gap: 20px (20px d'espace entre les cartes, horizontal ET vertical)
 - padding: 0 20px (20px à gauche et à droite, sans toucher au haut/bas)
 */
-
+.grille{
+ display: flex;
+ flex-wrap: wrap;
+gap: 20px ;
+ padding: 0 20px;
+}
 /*
 Chaque carte .carte présente dans la grille.
 Instructions :
@@ -129,12 +183,21 @@ Instructions :
   (ombre douce : 0 décalage horizontal, 4px vertical, 12px de flou,
    noir à 12% d'opacité)
 */
-
+.carte{
+position: relative;
+ flex: 1 1 240px ;
+ background-color: white;
+border: 2px solid #DCEBFF;
+border-radius: 12px;
+box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+}
 /*
 Titre <h3> de chaque carte.
 Instruction : color: #1D4ED8 (bleu de la charte pour titrer chaque module).
 */
-
+.carte h3{
+ color: #1D4ED8 ;
+}
 /*
 Liens <a> contenus dans une carte (liens « En savoir plus »).
 Instructions :
@@ -145,20 +208,32 @@ Instructions :
 - text-decoration: none (supprime le soulignement par défaut du lien)
 - border-radius: 8px (arrondit les coins du bouton pour un rendu moderne)
 */
-
+.carte a{
+display: inline-block;
+padding: 10px 16px;
+color: white ;
+background-color: #1D4ED8;
+text-decoration: none;
+border-radius: 8px ;
+}
 /*
 Liens-boutons des cartes AU SURVOL de la souris (.carte a:hover).
 Instruction : background-color: #0B2447
 (assombrit le fond en bleu nuit : feedback visuel au survol).
 */
-
+.carte a:hover{
+   background-color: #0B2447;
+}
 /*
 Cartes qui cumulent .carte ET .important (carte mise en avant).
 Instructions :
 - background-color: #EFF6FF (fond bleu très clair pour distinguer la carte)
 - border-color: #1D4ED8 (bordure bleu vif pour renforcer la mise en avant)
 */
-
+.carte.iportant{
+background-color: #EFF6FF;
+border-color: #1D4ED8 ;
+}
 /*
 Badge « Nouveau » présent sur certaines cartes (.badge).
 Instructions :
@@ -171,7 +246,17 @@ Instructions :
 - font-size: 12px (texte plus petit, rendu de badge discret)
 - border-radius: 6px (arrondit légèrement les coins du badge)
 */
+.badge{
+position: absolute ;
+ top: 10px;
+  padding: 5px 10px;
+   right: 10px ;
+   color: white;
+   background-color: #1D4ED8 ;
+   font-size: 12px ;
+   border-radius: 6px;
 
+}
 /*
 Pied de page <footer>.
 Instructions :
@@ -181,9 +266,19 @@ Instructions :
 - background-color: #0B2447 (fond bleu nuit identique à la barre de navigation,
   encadrement visuel cohérent de la page)
 */
+footer{
+padding: 20px;
+ color: white;
+  text-align: center;
+  background-color: #0B2447;
 
+}
 /*
 Paragraphe <p> contenu dans le pied de page.
 Instruction : margin: 0 (supprime la marge par défaut du paragraphe
 pour garder un espacement maîtrisé dans le pied de page).
 */
+p{
+ margin: 0;
+
+}
